@@ -5,14 +5,14 @@ pipeline {
         DISPLAY = ':99' // Xvfb virtual display
         PATH = "/home/jirayus/.local/bin:/usr/bin:${env.PATH}" // Include the Robot Framework path
     }
-
-    stage('Check PATH') {
-        steps {
-            sh 'echo $PATH' // Verify if the correct paths are available
-        }
-    }
-
     stages {
+
+        stage('Check PATH') {
+            steps {
+                sh 'echo $PATH' // Verify if the correct paths are available
+            }
+        }
+        
         stage('Run Robot Framework Tests') {
             steps {
                 echo 'Executing Robot Framework tests...'
