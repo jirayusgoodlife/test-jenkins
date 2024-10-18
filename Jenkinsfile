@@ -3,11 +3,10 @@ pipeline {
 
     environment {
         DISPLAY = ':99' // Xvfb virtual display
-        PATH = "/usr/local/bin:${env.PATH}" // Ensure geckodriver is in PATH
+        PATH = "/home/jirayus/.local/bin:/usr/bin:${env.PATH}" // Include the Robot Framework path
     }
 
     stages {
-
         stage('Run Robot Framework Tests') {
             steps {
                 echo 'Executing Robot Framework tests...'
